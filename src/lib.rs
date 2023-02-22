@@ -27,18 +27,6 @@ impl StitchFile {
     pub fn new(path: PathBuf, raw_contents: String) -> Self {
         Self { path, raw_contents }
     }
-
-    /// Renders the file using the given environment
-    fn render(&mut self, environment: Environment) -> Result<()> {
-        let mut ctx = tera::Context::new();
-        if environment == Environment::Overleaf {
-            ctx.insert("environment", "overleaf");
-        } else {
-            ctx.insert("environment", "texit");
-        }
-        let _out = Tera::one_off(self.raw_contents.as_str(), &ctx, false);
-        Ok(())
-    }
 }
 
 pub fn get_config_from_fs(path: &Path) -> Result<StitchConfig> {
