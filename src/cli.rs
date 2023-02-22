@@ -1,6 +1,6 @@
-use std::path::{PathBuf};
 use clap::{ArgAction, Parser, ValueEnum};
 use serde::Serialize;
+use std::path::PathBuf;
 
 #[derive(Copy, Clone, Debug, Eq, Ord, PartialEq, PartialOrd, ValueEnum, Serialize)]
 pub enum Environment {
@@ -34,5 +34,4 @@ pub struct CliArgs {
     /// The config file to read out of
     #[arg(short, long, default_value = "stitchconfig.yml", value_parser = clap::value_parser!(PathBuf))]
     pub config_path: PathBuf,
-
 }

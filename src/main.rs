@@ -1,8 +1,8 @@
 use clap::Parser;
 use preamble_stitch::cli::CliArgs;
+use preamble_stitch::{get_config_from_fs, read_files, stitch_and_render, write_file};
 use std::path::Path;
 use tracing::{debug, error, info};
-use preamble_stitch::{get_config_from_fs, read_files, stitch_and_render, write_file};
 
 fn main() {
     // setup tracing with env filter
@@ -14,7 +14,6 @@ fn main() {
             _ => tracing::Level::TRACE,
         })
         .init();
-
 
     info!("Building for environment {:?}", cli_opts.environment);
     debug!("CLI Options: {:?}", cli_opts);
@@ -49,5 +48,4 @@ fn main() {
         std::process::exit(1);
     }
     info!("Done!");
-
 }
