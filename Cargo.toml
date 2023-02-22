@@ -10,3 +10,5 @@ license = "Apache-2.0"
 serde = { version = "1.0.151", features = ["derive"] }
 serde_yaml = "0.9.16"
 anyhow = "1.0.68"
+tera = "1.17.1"
+clap = "4.1.6"
