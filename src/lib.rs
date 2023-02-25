@@ -36,7 +36,7 @@ impl StitchFile {
         } else {
             ctx.insert("environment", "texit");
         }
-        let _out = Tera::one_off(self.raw_contents.as_str(), &ctx, false);
+        let out = Tera::one_off(self.raw_contents.as_str(), &ctx, false);
         Ok(())
     }
 }

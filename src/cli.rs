@@ -1,4 +1,4 @@
-use std::path::{PathBuf};
+use std::path::{Path, PathBuf};
 use clap::{ArgAction, Parser, ValueEnum};
 use serde::Serialize;
 
@@ -11,9 +11,9 @@ pub enum Environment {
 }
 
 // add to string for env
-impl From<Environment> for String {
-    fn from(val: Environment) -> Self {
-        match val {
+impl Into<String> for Environment {
+    fn into(self) -> String {
+        match self {
             Environment::Overleaf => "overleaf".to_string(),
             Environment::Texit => "texit".to_string(),
         }
